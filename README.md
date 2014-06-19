@@ -18,7 +18,7 @@ Getting started with local development
 
         {"plugins":[{"value":"mycoolplugin","allowedOrigins":["*"],"sourceUrl":"https://localhost.intuit.com:8001/index.html"}]}
 
-Getting your plugin deployed to QA
+Getting your plugin deployed
 ---------
 
 1. Add your configuration to the config.json file (mostly configuring access points). See the example in the file that overrides the home page (but don't leave it like that).
