@@ -1,0 +1,21 @@
+{
+  "name": "starterplugin",
+  "version": "0.1.0",
+  "description": "starter plugin",
+  "readme": "README.md",
+  "repository" : {
+    "type" : "git",
+    "url" : "http://gitlab.corp.intuit.net/qboplugins/starterplugin.git"
+  },
+  "dependencies": {
+    "express": "~3.5.1",
+    "grunt-execute": "~0.1.5",
+    "cors": "~2.2.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}

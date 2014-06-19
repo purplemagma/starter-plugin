@@ -1,0 +1,12 @@
+{
+  "allowedOrigins": [
+    "*"
+  ],
+  "pluginId": "starterplugin",
+  "accessPoints": [
+    {
+      "overrideAppRoute": "starterplugin",
+      "sourcePath": "/index.html"
+    }
+  ]
+}
