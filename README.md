@@ -15,6 +15,7 @@ Getting started with local development
 1. Go to https://qbo.intuit.com and log into your company
 1. Open the Javascript console and find your serverGroup and your serverGroupCompanyId
 1. Go to the resources window, and create a new local storage key <serverGroupCompanyId>_<serverGroup>_ecosystem_plugins and add the following value:
+
         {"plugins":[{"value":"mycoolplugin","allowedOrigins":["*"],"sourceUrl":"https://localhost.intuit.com:8001/index.html"}]}
 
 Getting your plugin deployed to QA
