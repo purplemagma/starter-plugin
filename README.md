@@ -12,13 +12,10 @@ Getting started with local development
 1. Edit package.json and replace "Starter Plugin" with your own plugin name and repository location
 1. Run "npm install"
 1. Run "grunt dev" for development on https://localhost.intuit.com:8001
-1. Go to https://qa.qbo.intuit.com/app/ecosystem and add a new plugin
-1. Use this configuration (for native plugins):
-
-		"isNative": true,
-		"sourceUrl": "https://localhost:8001/StarterPluginViewController.js"
-
-1. You may additionally want to set access points
+1. Go to https://qbo.intuit.com and log into your company
+1. Open the Javascript console and find your serverGroup and your serverGroupCompanyId
+1. Go to the resources window, and create a new local storage key <serverGroupCompanyId>_<serverGroup>_ecosystem_plugins and add the following value:
+        {"plugins":[{"value":"mycoolplugin","allowedOrigins":["*"],"sourceUrl":"https://localhost.intuit.com:8001/index.html"}]}
 
 Getting your plugin deployed to QA
 ---------
