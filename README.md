@@ -1,7 +1,7 @@
 QBO UI Plugin Development
 ==================
 
-These are instructions for getting started with QBO plugin development. Akamai hosting is built-in for QA and production. You may choose to use an iFrame instead of a native plugin.
+These are instructions for getting started with QBO plugin development. Plugins are iFrames that you can insert into various places inside QBO.
 
 Getting started with local development
 -------
@@ -13,25 +13,9 @@ Getting started with local development
 1. Run "npm install"
 1. Run "grunt dev" for development on https://localhost.intuit.com:8001
 1. Go to https://qbo.intuit.com and log into your company
-1. Open the Javascript console and find your serverGroup and your serverGroupCompanyId
-1. Go to the resources window, and create a new local storage key &lt;serverGroupCompanyId&gt;_&lt;serverGroup&gt;_ecosystem_plugins and add the following value:
-
-        {"plugins":[{"value":"mycoolplugin","allowedOrigins":["*"],"sourceUrl":"https://localhost.intuit.com:8001/index.html"}]}
-
-Getting your plugin deployed
----------
-
-1. Add your configuration to the config.json file (mostly configuring access points). See the example in the file that overrides the home page (but don't leave it like that).
-1. A pointer to your plugin must be added to the master configuration file (in the future they will be auto discovered). Just ask Alexey Povkh or Jeff Brewer to do this for you for now.
-1. Send e-mail to QBG_SCM_Help@intuit.com using this format:
-
-		Subject: New QBO UI plugin project
-
-		plugin name: <your plugin name>
-		gitlab repo: git@gitlab.corp.intuit.net:<gitlab group>/<git repo name>.git
-		access: list of developers in the project who can initiate builds/deploys
-
-Development Notes
------------
-
-You may wish to enhance the grunt build so that grunt dist does closure compiling and minifying.
+1. After you get to the home page, go to this link https://qbo.intuit.com/app/plugins/qbodeveloper
+1. Click "Install" to install the qbo developer plugin
+1. Visit the "Gear" menu and click "Company Settings". Find the Developer tab.
+1. Add a new plugin with your own name (e.g. mycoolplugin). Notice it is marked "local storage". This means it will be configured on just your browser in its local storage.
+1. The example plugin can be visited here https://qbo.intuit.com/app/plugins/<your plugin id>. Your plugin id is the name you typed when you created a new plugin (e.g. mycoolplugin).
+1. You should see "Hello World!"
