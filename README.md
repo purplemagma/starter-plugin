@@ -17,5 +17,5 @@ Getting started with local development
 1. Click "Install" to install the qbo developer plugin
 1. Visit the "Gear" menu and click "Company Settings". Find the Developer tab.
 1. Add a new plugin with your own name (e.g. mycoolplugin). Notice it is marked "local storage". This means it will be configured on just your browser in its local storage.
-1. The example plugin can be visited here https://qbo.intuit.com/app/plugins/<your plugin id>. Your plugin id is the name you typed when you created a new plugin (e.g. mycoolplugin).
+1. The example plugin can be visited here https://qbo.intuit.com/app/plugins/[your plugin id]. Your plugin id is the name you typed when you created a new plugin (e.g. mycoolplugin).
 1. You should see "Hello World!"
