@@ -2,10 +2,9 @@
   "allowedOrigins": [
     "*"
   ],
-  "pluginId": "starterplugin",
   "accessPoints": [
     {
-      "overrideAppRoute": "starterplugin",
+      "overrideAppRoute": "customers",
       "sourcePath": "/index.html"
     }
   ]
