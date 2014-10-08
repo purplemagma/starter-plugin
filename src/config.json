@@ -2,6 +2,7 @@
   "allowedOrigins": [
     "*"
   ],
+  "sourcePath": "/index.html",
   "accessPoints": [
     {
       "overrideAppRoute": "customers",
