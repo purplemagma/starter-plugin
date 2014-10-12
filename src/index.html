@@ -10,14 +10,31 @@ window.addEventListener("message", function(a){
         document.getElementsByTagName("head")[0].appendChild(b);
     }
 });
+
 qboXDMReady = function() {
    qboXDM.getContext(function(context) {
       console.log(context);
    });
 }
+
+showPageMessage = function() {
+    qboXDM.showPageMessage("Hello World", false);
+}
+
+showSimpleDialog = function() {
+    qboXDM.showSimpleOkDialog("Title", "My Own Message", function() { console.log("ok"); });
+}
+
+showVideo = function() {
+    qboXDM.showVideo("Call Me Maybe", "fWNaR-rxAic");
+}
+
 </script>
 </head>
 <body>
-   Hello World!
+   Hello World!<br/><br/>
+   <button onclick="showPageMessage();">Show Page Message</button><br/><br/>
+   <button onclick="showSimpleDialog();">Show Dialog</button><br/><br/>
+   <button onclick="showVideo();">Show Video</button><br/><br/>
 </body>
 </html>
