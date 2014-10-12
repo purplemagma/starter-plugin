@@ -1,5 +1,21 @@
 <html>
 <head>
+<script>
+window.addEventListener("message", function(a){
+    if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
+    {
+        var b=document.createElement("script");
+        b.setAttribute("type","text/javascript");
+        b.innerHTML=a.data.initXDM;
+        document.getElementsByTagName("head")[0].appendChild(b);
+    }
+});
+qboXDMReady = function() {
+   qboXDM.getContext(function(context) {
+      console.log(context);
+   });
+}
+</script>
 </head>
 <body>
    Hello World!
