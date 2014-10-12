@@ -9,10 +9,8 @@ Getting started with local development
 1. Fork this repo and rename it to the name of your plugin.
 1. Clone the repo to your local machine
 1. Open the server.crt file in the sslcert folder and add it to your keychain/trusted cert store (this will allow you to run your browser with full security turned on)
-1. Add
-
-       127.0.0.1 localhost.intuit.com
-to your hosts file (e.g. /etc/hosts on *nix)
+1. Add the following to your hosts file (/etc/hosts on *nix)
+ 127.0.0.1 localhost.intuit.com
 1. Edit package.json and replace "Starter Plugin" with your own plugin name and repository location
 1. Run "npm install"
 1. Run "grunt dev" for development on https://localhost.intuit.com:34212
