@@ -1,0 +1,65 @@
+<html>
+<head>
+<script>
+window.addEventListener("message", function(a){
+    if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
+    {
+        var b=document.createElement("script");
+        b.setAttribute("type","text/javascript");
+        b.innerHTML=a.data.initXDM;
+        document.getElementsByTagName("head")[0].appendChild(b);
+    }
+});
+
+qboXDMReady = function() {
+   qboXDM.getContext(function(context) {
+      console.log(context);
+   });
+}
+</script>
+<style>
+body {
+  padding: 40px;
+  overflow-x: hidden; /* For Opera */
+  -webkit-box-shadow:
+    inset #19d4ff 0 0 0 5px,
+    inset #18cdf7 0 0 0 1px,
+    inset #53dfff 0 0 0 10px,
+    inset #50d8f7 0 0 0 11px,
+    inset #8ce9ff 0 0 0 16px,
+    inset #88e2f7 0 0 0 17px,
+    inset #c5f4ff 0 0 0 22px,
+    inset #bfecf7 0 0 0 23px;
+  -moz-box-shadow:
+    inset #19d4ff 0 0 0 5px,
+    inset #18cdf7 0 0 0 1px,
+    inset #53dfff 0 0 0 10px,
+    inset #50d8f7 0 0 0 11px,
+    inset #8ce9ff 0 0 0 16px,
+    inset #88e2f7 0 0 0 17px,
+    inset #c5f4ff 0 0 0 22px,
+    inset #bfecf7 0 0 0 23px;
+  box-shadow:
+    inset #19d4ff 0 0 0 5px,
+    inset #18cdf7 0 0 0 1px,
+    inset #53dfff 0 0 0 10px,
+    inset #50d8f7 0 0 0 11px,
+    inset #8ce9ff 0 0 0 16px,
+    inset #88e2f7 0 0 0 17px,
+    inset #c5f4ff 0 0 0 22px,
+    inset #bfecf7 0 0 0 23px;
+}
+
+button {
+  border-radius: 2px 0 0;
+  box-sizing: border-box;
+  color: white;
+  background-color: #24479b;
+}
+</style>
+</head>
+<body>
+   Sales Tax Calc<br/><br/>
+   <button>Calculate</button>
+</body>
+</html>
