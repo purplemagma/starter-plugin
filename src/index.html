@@ -1,5 +1,17 @@
 <html>
 <head>
+<style type="text/css">
+  button {
+  border-radius: 2px 0 0;
+  box-sizing: border-box;
+  color: white;
+  background-color: #24479b;
+  width: 250px;
+  height: 65px;
+  font-size: 22px;
+}
+
+</style>
 <script>
 window.addEventListener("message", function(a){
     if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
@@ -14,6 +26,7 @@ window.addEventListener("message", function(a){
 qboXDMReady = function() {
    qboXDM.getContext(function(context) {
       console.log(context);
+      document.getElementById("custName").value = context.qbo.user.name;
    });
 }
 
@@ -32,9 +45,10 @@ showVideo = function() {
 </script>
 </head>
 <body>
-   Hello World!<br/><br/>
-   <button onclick="showPageMessage();">Show Page Message</button><br/><br/>
-   <button onclick="showSimpleDialog();">Show Dialog</button><br/><br/>
-   <button onclick="showVideo();">Show Video</button><br/><br/>
+   <div style="font-size:36px">Hello Tech Forum!</div><br/><br/>
+   <div style="font-size:18px">Customer Name: <input style="font-size:18px" type="text" id="custName"></input></div><br/>
+   <button onclick="showPageMessage();">Show Page Message</button>
+   <button onclick="showSimpleDialog();">Show Dialog</button>
+   <button onclick="showVideo();">Show Video</button>
 </body>
 </html>
