@@ -5,8 +5,19 @@
   "sourcePath": "/index.html",
   "accessPoints": [
     {
-      "overrideAppRoute": "customers",
-      "sourcePath": "/index.html"
+      "overrideAppRoute": "customers"
+    },
+    {
+      "attachPoint": "_apSettingsSettingsList",
+      "linkText": "Cool Plugin"
+    },
+    {
+      "attachPoint": "_apAmountsTable",
+      "vc": "qbo/addon/XDMAddonViewController",
+      "width": 200,
+      "height": 200,
+      "cssPosition": "relative",
+      "sourcePath": "/salestax.html"
     }
   ]
 }
