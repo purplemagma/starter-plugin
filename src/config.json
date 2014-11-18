@@ -12,6 +12,12 @@
       "linkText": "Cool Plugin"
     },
     {
+      "attachPoint": "_apCreateCustomersList",
+      "linkText": "Cool Plugin Trowser",
+      "trowser": true,
+      "sourcePath": "/trowser.html"
+    },
+    {
       "attachPoint": "_apAmountsTable",
       "vc": "qbo/addon/XDMAddonViewController",
       "width": 200,

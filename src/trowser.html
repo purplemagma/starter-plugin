@@ -1,0 +1,130 @@
+<html>
+<head>
+<script>
+window.addEventListener("message", function(a){
+    if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
+    {
+        var b=document.createElement("script");
+        b.setAttribute("type","text/javascript");
+        b.innerHTML=a.data.initXDM;
+        document.getElementsByTagName("head")[0].appendChild(b);
+    }
+});
+</script>
+<style type="text/css">
+body .trowser {
+  background: white;
+  min-width: 1024px;
+}
+body .trowser .header {
+  height: 40px;
+  background-color: #486c8f;
+  position: relative;
+  z-index: 3;
+  zoom: reset;
+}
+
+body .table {
+  display: table;
+}
+body .stretch {
+  width: 100%;
+  height: 100%;
+}
+body .tableRow {
+  display: table-row;
+  wrap: nowrap;
+}
+body .pageTitle {
+    font-size: 2.2rem;
+    line-height: 40px;
+    color: white;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+body .tableCell {
+  display: table-cell;
+}
+
+body .tableRow {
+  display: table-row;
+  wrap: nowrap;
+}
+
+body .inlineBlock {
+  display: inline-block;
+}
+
+body .bottomCenterButtons {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+
+body .bottomRightButtons {
+    text-align: right;
+}
+
+body .button, .button:link, [type=button], [type=submit] {
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-radius: 2px;
+  font-family: "HelveticaNeue-Roman", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  min-width: 80px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 20px;
+  border: 0;
+  margin-bottom: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #365ebf;
+  box-shadow: inset 0 0 0 1px #dddddd;
+  background-image: -webkit-linear-gradient(top, white 0%, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  font-size: 1.4rem;
+  color: white;
+  box-shadow: none;
+  background-image: -webkit-linear-gradient(top, #3e6cc9 0%, #2e50b6 100%);
+  background-image: linear-gradient(to bottom, #3e6cc9 0%, #2e50b6 100%);
+}
+
+</style>
+</head>
+<body>
+    <div class="trowser">
+        <header class="table header stretch">
+            <div class="tableRow">
+                <div class="tableCell">
+                    <div class="pageTitle inlineBlock">Sample trowser</div>
+                </div>
+            </div>
+        </header>
+        <div class="table">
+            Hello, trowser!<br/>
+        </div>
+        <footer class="table footer stretch">
+            <div class="tableRow">
+                <div class="tableCell bottomLeftButtons">
+                    <button onclick="qboXDM.closeTrowser();" type="button" class="button" id="closeTrowser">Cancel</button>
+                </div>
+                <div class="tableCell bottomCenterButtons"></div>
+                <div class="tableCell bottomRightButtons">
+                    <button onclick="qboXDM.closeTrowser();" type="button" class="button">Done</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
