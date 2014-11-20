@@ -16,6 +16,14 @@ qboXDMReady = function() {
       console.log(context);
    });
 }
+
+qboXDMReceiveMessage = function(message) {
+  // for the message.eventName === "qbo-transaction"
+  // message.data.id will have the id of the transaction
+  // message.data.typeName will be invoice, bill, etc.
+  console.log(message);
+}
+
 </script>
 <style>
 body {
