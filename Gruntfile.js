@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+	require('load-grunt-tasks')(grunt);
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		jshint: {
@@ -17,7 +19,7 @@ module.exports = function(grunt) {
 		},
 		execute: {
 			app: {
-				src: ["app.js"]
+				src: ['app.js']
 			}
 		},
 		open : {
@@ -26,12 +28,6 @@ module.exports = function(grunt) {
 	    }
 		}
 	});
-
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-open');
-	grunt.loadNpmTasks('grunt-execute');
 
 	grunt.registerTask('default', ['clean:dist', 'jshint', 'copy:dist']);
 	grunt.registerTask('dev', ['jshint', 'open:dev', 'execute:app']);
