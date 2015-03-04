@@ -19,14 +19,20 @@ module.exports = function(grunt) {
 			app: {
 				src: ["app.js"]
 			}
+		},
+		open : {
+	    dev : {
+	      path: 'https://localhost.intuit.com:34212'
+	    }
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-execute');
 
 	grunt.registerTask('default', ['clean:dist', 'jshint', 'copy:dist']);
-	grunt.registerTask('dev', ['jshint', 'execute:app']);
+	grunt.registerTask('dev', ['jshint', 'open:dev', 'execute:app']);
 };

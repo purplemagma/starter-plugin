@@ -17,6 +17,7 @@
     "jade": "~1.6.0",
     "grunt-execute": "~0.1.5",
     "cors": "~2.2.0"
+    "grunt-open": "~0.2.3",
   },
   "devDependencies": {
     "grunt": "~0.4.2",
