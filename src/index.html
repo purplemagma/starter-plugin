@@ -74,7 +74,6 @@ callV3Service = function() {
     },
     beforeSend: function(xhr) {
       xhr.setRequestHeader("CsrfToken", ticket);
-      xhr.setRequestHeader("Content-Type", "application/json");
     },
     success: function(data) {
       console.log(data);
