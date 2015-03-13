@@ -12,6 +12,7 @@
 }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 window.addEventListener("message", function(a){
     if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
@@ -23,10 +24,32 @@ window.addEventListener("message", function(a){
     }
 });
 
+getCookie = function(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+        x=x.replace(/^\s+|\s+$/g,"");
+        if (x==c_name)
+        {
+            return unescape(y);
+        }
+     }
+}
+
+var v3ServiceUrl;
+var realmId;
+var ticket;
+
 qboXDMReady = function() {
    qboXDM.getContext(function(context) {
       console.log(context);
       document.getElementById("custName").value = context.qbo.user.name;
+      v3ServiceUrl = context.qbo.v3ServiceBaseUrl;
+      realmId = context.qbo.realmId;
+      ticket = getCookie(context.qbo.cookiePrefix+".tkt");
    });
 }
 
@@ -42,6 +65,22 @@ showVideo = function() {
     qboXDM.showVideo("Call Me Maybe", "fWNaR-rxAic");
 }
 
+callV3Service = function() {
+  $.ajax({
+    dataType: "json",
+    url: v3ServiceUrl+"companyinfo/"+realmId,
+    xhrFields: {
+      withCredentials: true
+    },
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("CsrfToken", ticket);
+      xhr.setRequestHeader("Content-Type", "application/json");
+    },
+    success: function(data) {
+      console.log(data);
+  }});
+}
+
 </script>
 </head>
 <body>
@@ -50,5 +89,6 @@ showVideo = function() {
    <button onclick="showPageMessage();">Show Page Message</button>
    <button onclick="showSimpleDialog();">Show Dialog</button>
    <button onclick="showVideo();">Show Video</button>
-</body>
+   <button onclick="callV3Service();">Call V3 Service</button>
+ </body>
 </html>
