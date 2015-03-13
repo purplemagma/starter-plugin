@@ -6,9 +6,9 @@
   box-sizing: border-box;
   color: white;
   background-color: #24479b;
-  width: 250px;
+  width: 150px;
   height: 65px;
-  font-size: 22px;
+  font-size: 14px;
 }
 
 </style>
@@ -65,29 +65,45 @@ showVideo = function() {
     qboXDM.showVideo("Call Me Maybe", "fWNaR-rxAic");
 }
 
-callV3Service = function() {
+callV3Service = function(path, data) {
   $.ajax({
+    method: data ? "POST" : "GET",
+    data: data ? JSON.stringify(data) : null,
     dataType: "json",
-    url: v3ServiceUrl+"companyinfo/"+realmId,
+    url: v3ServiceUrl+path,
     xhrFields: {
       withCredentials: true
     },
     beforeSend: function(xhr) {
       xhr.setRequestHeader("CsrfToken", ticket);
+      xhr.setRequestHeader("Content-Type", "application/json");
     },
     success: function(data) {
       console.log(data);
-  }});
+    }
+  });
+}
+
+callV3CompanyInfoService = function() {
+  callV3Service("companyinfo/"+realmId);
+}
+
+callV3AddVendorService = function() {
+  var vendor = {
+    "DisplayName": "01Dianne's Auto Shop "+Date.now()
+  }
+  callV3Service("vendor", vendor);
 }
 
 </script>
 </head>
 <body>
-   <div style="font-size:36px">Hello Tech Forum!</div><br/><br/>
+   <div style="font-size:36px">Hello World!</div><br/><br/>
    <div style="font-size:18px">Customer Name: <input style="font-size:18px" type="text" id="custName"></input></div><br/>
-   <button onclick="showPageMessage();">Show Page Message</button>
+   <button onclick="showPageMessage();">Page Message</button>
    <button onclick="showSimpleDialog();">Show Dialog</button>
    <button onclick="showVideo();">Show Video</button>
-   <button onclick="callV3Service();">Call V3 Service</button>
+   <button onclick="callV3CompanyInfoService();">Call V3 Company</button>
+   <button onclick="callV3AddVendorService();">Call V3 Add Vendor</button>
  </body>
 </html>
