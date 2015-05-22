@@ -10,6 +10,16 @@ window.addEventListener("message", function(a){
         document.getElementsByTagName("head")[0].appendChild(b);
     }
 });
+
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
+var qboXDMReady = function() {
+  document.getElementById('theId').innerHTML = get('id');
+}
+
 </script>
 <style type="text/css">
 body .trowser {
@@ -113,6 +123,7 @@ body .button, .button:link, [type=button], [type=submit] {
         </header>
         <div class="table">
             Hello, trowser!<br/>
+            Your id is<div id="theId"></div>
         </div>
         <footer class="table footer stretch">
             <div class="tableRow">

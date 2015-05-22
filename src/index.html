@@ -95,6 +95,10 @@ callV3AddVendorService = function() {
   callV3Service("vendor", vendor);
 }
 
+goToTrowser = function(id) {
+  qboXDM.navigate("xdmtrowser://trowser.html?id="+id);
+}
+
 </script>
 </head>
 <body>
@@ -104,6 +108,10 @@ callV3AddVendorService = function() {
    <button onclick="showSimpleDialog();">Show Dialog</button>
    <button onclick="showVideo();">Show Video</button>
    <button onclick="callV3CompanyInfoService();">Call V3 Company</button>
-   <button onclick="callV3AddVendorService();">Call V3 Add Vendor</button>
+   <button onclick="callV3AddVendorService();">Call V3 Add Vendor</button><br/><br/>
+   <div><a onclick="goToTrowser('123')" href="">Trowser with id 123</a></div>
+   <div><a onclick="goToTrowser('1234')" href="">Trowser with id 1234</a></div>
+   <div><a onclick="goToTrowser('2993')" href="">Trowser with id 2993</a></div>
+   <div><a onclick="goToTrowser('1433')" href="">Trowser with id 1433</a></div>
  </body>
 </html>
