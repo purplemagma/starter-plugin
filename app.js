@@ -1,5 +1,5 @@
 var port = 34212;
-var localServerName = "localhost.intuit.com:"+port;
+var localServerName = "localhost.intuit.com:" + port;
 
 var express = require("express");
 var morgan = require("morgan");

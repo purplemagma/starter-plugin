@@ -10,16 +10,22 @@ Getting started with local development
 
 1. Fork this repo and rename it to the name of your plugin.
 1. Clone the repo to your local machine
-1. Open the server.crt file in the sslcert folder and add it to your keychain/trusted cert store (this will allow you to run your browser with full security turned on)
-1. Add the following to your hosts file (/etc/hosts on *nix)
+1. Open the `server.crt` file in the `sslcert` folder and add it to your keychain/trusted cert store (this will allow you to run your browser with full security turned on)
+1. Add the following to your hosts file (`/etc/hosts` on *nix)
 
         127.0.0.1 localhost.intuit.com
 
 1. Edit package.json and replace "Starter Plugin" with your own plugin name and repository location
-1. Run "npm install"
-1. Run "grunt dev" for development on https://localhost.intuit.com:34212
-1. A QBO Developer Sandbox account is recommended. Go to https://developer.intuit.com to get your free account.
-1. After you create and log into your free sandbox account, go to this link https://sandbox.qbo.intuit.com/app/plugins/qbodeveloper
+1. Install the dependencies
+
+        npm install
+
+1. Start the local development task on https://localhost.intuit.com:34212
+
+        grunt dev
+
+1. A QBO Developer Sandbox account is recommended. [Get a free account]( https://developer.intuit.com).
+1. After you create and log into your free sandbox account, visit  https://sandbox.qbo.intuit.com/app/plugins/qbodeveloper
 1. Click "Install" to install the qbo developer plugin
 1. Visit the "Gear" menu and click "Company Settings". Find the Developer tab.
 1. Add a new plugin with your own name (e.g. mycoolplugin). Notice it is marked "local storage". This means it will be configured on just your browser in its local storage.
