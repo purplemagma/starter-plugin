@@ -19,7 +19,7 @@ Getting started with local development
 1. Run "npm install"
 1. Run "grunt dev" for development on https://localhost.intuit.com:34212
 1. A QBO Developer Sandbox account is recommended. Go to https://developer.intuit.com to get your free account.
-1. After you create and log into your free sandbox account, go to this link https://sandbox.qbo.intuit.com/app/plugins/qbodeveloper
+1. After you create and log into your free sandbox account, go to this link https://sandbox.qbo.intuit.com/app/developers
 1. Click "Install" to install the qbo developer plugin
 1. Visit the "Gear" menu and click "Company Settings". Find the Developer tab.
 1. Add a new plugin with your own name (e.g. mycoolplugin). Notice it is marked "local storage". This means it will be configured on just your browser in its local storage.
