@@ -47,11 +47,6 @@ qboXDMReady = function() {
 
 document.addEventListener("DOMContentLoaded", function(event) {
     console.log("DOM fully loaded and parsed");
-    if (document.getElementById("pageModal")) {
-        document.getElementById("pageModal").addEventListener("component-upgraded", function() {
-            document.getElementById("pageModal").show();
-        });
-    }
 });
 
 showPageMessage = function() {
