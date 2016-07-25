@@ -36,7 +36,12 @@ var ticket;
 qboXDMReady = function() {
    qboXDM.getContext(function(context) {
       console.log(context);
-      document.getElementById("custName").value = context.qbo.user.name;
+      if (document.getElementById("custName")) {
+          document.getElementById("custName").value = context.qbo.user.name;
+      }
+      if (document.getElementById("pageModal")) {
+          document.getElementById("pageModal").show();
+      }
       v3ServiceUrl = context.qbo.v3ServiceBaseUrl;
       realmId = context.qbo.realmId;
       ticket = getCookie(context.qbo.cookiePrefix+".tkt");
