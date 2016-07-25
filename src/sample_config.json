@@ -1,0 +1,19 @@
+{
+    "description": "",
+    "baseSourceUrl": "https://localhost.intuit.com:34212",
+    "allowedOrigins": [
+        "*"
+    ],
+    "extensions": {
+        "routes": [
+            {
+                "path": "customers",
+                "controller": "qbo-ui-libs-plugins/addon/iFrameRouteController",
+                "xdmParameters": {
+                    "sourcePath": "/index.html"
+                }
+            }
+        ]
+    },
+    "id": "starter-plugin"
+}

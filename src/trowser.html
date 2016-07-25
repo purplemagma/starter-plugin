@@ -1,26 +1,10 @@
 <html>
 <head>
-<script>
-window.addEventListener("message", function(a){
-    if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
-    {
-        var b=document.createElement("script");
-        b.setAttribute("type","text/javascript");
-        b.innerHTML=a.data.initXDM;
-        document.getElementsByTagName("head")[0].appendChild(b);
-    }
-});
 
-function get(name){
-   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);
-}
+<!-- Harmony stylesheets -->
+<link rel="stylesheet" href="https://ds2p3umyqz5ps.cloudfront.net/vendor/hui/dist/css/hui.css"></link>
+<link rel="stylesheet" href="https://ds2p3umyqz5ps.cloudfront.net/vendor/hui/dist/css/hui-table.css"></link>
 
-var qboXDMReady = function() {
-  document.getElementById('theId').innerHTML = get('id');
-}
-
-</script>
 <style type="text/css">
 body .trowser {
   background: white;
@@ -137,5 +121,10 @@ body .button, .button:link, [type=button], [type=submit] {
             </div>
         </footer>
     </div>
+
+    <!-- Harmony elements -->
+    <script type="text/javascript" data-main="https://ds2p3umyqz5ps.cloudfront.net/js/loader.js" src="https://ds2p3umyqz5ps.cloudfront.net/vendor/requirejs/require.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+
 </body>
 </html>

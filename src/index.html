@@ -1,117 +1,25 @@
 <html>
 <head>
-<style type="text/css">
-  button {
-  border-radius: 2px 0 0;
-  box-sizing: border-box;
-  color: white;
-  background-color: #24479b;
-  width: 150px;
-  height: 65px;
-  font-size: 14px;
-}
-
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
-window.addEventListener("message", function(a){
-    if(a.origin.indexOf("intuit.com")>=1&&a.data&&a.data.initXDM)
-    {
-        var b=document.createElement("script");
-        b.setAttribute("type","text/javascript");
-        b.innerHTML=a.data.initXDM;
-        document.getElementsByTagName("head")[0].appendChild(b);
-    }
-});
-
-getCookie = function(c_name)
-{
-    var i,x,y,ARRcookies=document.cookie.split(";");
-    for (i=0;i<ARRcookies.length;i++)
-    {
-        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-        x=x.replace(/^\s+|\s+$/g,"");
-        if (x==c_name)
-        {
-            return unescape(y);
-        }
-     }
-}
-
-var v3ServiceUrl;
-var realmId;
-var ticket;
-
-qboXDMReady = function() {
-   qboXDM.getContext(function(context) {
-      console.log(context);
-      document.getElementById("custName").value = context.qbo.user.name;
-      v3ServiceUrl = context.qbo.v3ServiceBaseUrl;
-      realmId = context.qbo.realmId;
-      ticket = getCookie(context.qbo.cookiePrefix+".tkt");
-   });
-}
-
-showPageMessage = function() {
-    qboXDM.showPageMessage("Hello World", false);
-}
-
-showSimpleDialog = function() {
-    qboXDM.showSimpleOkDialog("Title", "My Own Message", function() { console.log("ok"); });
-}
-
-showVideo = function() {
-    qboXDM.showVideo("Call Me Maybe", "fWNaR-rxAic");
-}
-
-callV3Service = function(path, data) {
-  $.ajax({
-    method: data ? "POST" : "GET",
-    data: data ? JSON.stringify(data) : null,
-    dataType: "json",
-    url: v3ServiceUrl+path,
-    xhrFields: {
-      withCredentials: true
-    },
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("CsrfToken", ticket);
-      xhr.setRequestHeader("Content-Type", "application/json");
-    },
-    success: function(data) {
-      console.log(data);
-    }
-  });
-}
-
-callV3CompanyInfoService = function() {
-  callV3Service("companyinfo/"+realmId);
-}
-
-callV3AddVendorService = function() {
-  var vendor = {
-    "DisplayName": "01Dianne's Auto Shop "+Date.now()
-  }
-  callV3Service("vendor", vendor);
-}
-
-goToTrowser = function(id) {
-  qboXDM.navigate("xdmtrowser://trowser.html?id="+id);
-}
-
-</script>
+    <!-- Harmony stylesheets -->
+    <link rel="stylesheet" href="https://ds2p3umyqz5ps.cloudfront.net/vendor/hui/dist/css/hui.css"></link>
+    <link rel="stylesheet" href="https://ds2p3umyqz5ps.cloudfront.net/vendor/hui/dist/css/hui-table.css"></link>
 </head>
 <body>
    <div style="font-size:36px">Hello World!</div><br/><br/>
-   <div style="font-size:18px">Customer Name: <input style="font-size:18px" type="text" id="custName"></input></div><br/>
-   <button onclick="showPageMessage();">Page Message</button>
-   <button onclick="showSimpleDialog();">Show Dialog</button>
-   <button onclick="showVideo();">Show Video</button>
-   <button onclick="callV3CompanyInfoService();">Call V3 Company</button>
-   <button onclick="callV3AddVendorService();">Call V3 Add Vendor</button><br/><br/>
+   <ha-text-field label="Customer Name" id="custName"></ha-text-field><br/><br/>
+   <button class="ha-button" onclick="showPageMessage();">Page Message</button>
+   <button class="ha-button" onclick="showSimpleDialog();">Show Dialog</button>
+   <button class="ha-button" onclick="showVideo();">Show Video</button>
+   <button class="ha-button" onclick="callV3CompanyInfoService();">Call V3 Company</button>
+   <button class="ha-button" onclick="callV3AddVendorService();">Call V3 Add Vendor</button><br/><br/>
    <div><a onclick="goToTrowser('123')" href="">Trowser with id 123</a></div>
    <div><a onclick="goToTrowser('1234')" href="">Trowser with id 1234</a></div>
    <div><a onclick="goToTrowser('2993')" href="">Trowser with id 2993</a></div>
    <div><a onclick="goToTrowser('1433')" href="">Trowser with id 1433</a></div>
+
+   <!-- Harmony elements -->
+   <script type="text/javascript" data-main="https://ds2p3umyqz5ps.cloudfront.net/js/loader.js" src="https://ds2p3umyqz5ps.cloudfront.net/vendor/requirejs/require.js"></script>
+   <script type="text/javascript" src="./main.js"></script>
+
  </body>
 </html>
