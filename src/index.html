@@ -17,9 +17,15 @@
    <div><a onclick="goToTrowser('2993')" href="">Trowser with id 2993</a></div>
    <div><a onclick="goToTrowser('1433')" href="">Trowser with id 1433</a></div>
 
-   <!-- Harmony elements -->
-   <script type="text/javascript" data-main="https://ds2p3umyqz5ps.cloudfront.net/js/loader.js" src="https://ds2p3umyqz5ps.cloudfront.net/vendor/requirejs/require.js"></script>
-   <script type="text/javascript" src="./main.js"></script>
+   <ha-money-bar>
+       <ha-money-bar-segment titleTextBold="50" titleText="Unbilled">
+           <ha-money-bar-cell class="mbDarkBlue" primaryText="$50.00" secondaryText="2 ESTIMATE"></ha-money-bar-cell>
+           <ha-money-bar-cell class="mbLightBlue" primaryText="$50.00" secondaryText="2 UNBILLED ACTIVITY"></ha-money-bar-cell>
+       </ha-money-bar-segment>
+   </ha-money-bar>
 
+       <!-- Harmony elements -->
+       <script type="text/javascript" data-main="https://ds2p3umyqz5ps.cloudfront.net/js/loader.js" src="https://ds2p3umyqz5ps.cloudfront.net/vendor/requirejs/require.js"></script>
+       <script type="text/javascript" src="./main.js"></script>
  </body>
 </html>

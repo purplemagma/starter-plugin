@@ -8,8 +8,7 @@ window.addEventListener("message", function(a){
     }
 });
 
-getCookie = function(c_name)
-{
+getCookie = function(c_name) {
     var i,x,y,ARRcookies=document.cookie.split(";");
     for (i=0;i<ARRcookies.length;i++)
     {
@@ -21,11 +20,13 @@ getCookie = function(c_name)
             return unescape(y);
         }
      }
-}
+};
 
-function get(name){
-   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);
+function get(name) {
+    var aname = (new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search);
+    if (aname) {
+        return decodeURIComponent(name[1]);
+    }
 }
 
 var v3ServiceUrl;
@@ -40,19 +41,19 @@ qboXDMReady = function() {
       realmId = context.qbo.realmId;
       ticket = getCookie(context.qbo.cookiePrefix+".tkt");
    });
-}
+};
 
 showPageMessage = function() {
     qboXDM.showPageMessage("Hello World", false);
-}
+};
 
 showSimpleDialog = function() {
     qboXDM.showSimpleOkDialog("Title", "My Own Message", function() { console.log("ok"); });
-}
+};
 
 showVideo = function() {
     qboXDM.showVideo("Call Me Maybe", "fWNaR-rxAic");
-}
+};
 
 callV3Service = function(path, data) {
     require(["jquery"], function($) {
@@ -71,21 +72,21 @@ callV3Service = function(path, data) {
             success: function(data) {
                 console.log(data);
             }
-        });        
+        });
     });
-}
+};
 
 callV3CompanyInfoService = function() {
   callV3Service("companyinfo/"+realmId);
-}
+};
 
 callV3AddVendorService = function() {
-  var vendor = {
-    "DisplayName": "01Dianne's Auto Shop "+Date.now()
-  }
-  callV3Service("vendor", vendor);
-}
+    var vendor = {
+        "DisplayName": "01Dianne's Auto Shop "+Date.now()
+    };
+    callV3Service("vendor", vendor);
+};
 
 goToTrowser = function(id) {
   qboXDM.navigate("xdmtrowser://trowser.html?id="+id);
-}
+};
