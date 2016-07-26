@@ -46,7 +46,9 @@ qboXDMReady = function() {
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
+    document.getElementById("pageModal").addEventListener("dismiss", function() {
+        qboXDM.closeTrowser();
+    });
 });
 
 showPageMessage = function() {
