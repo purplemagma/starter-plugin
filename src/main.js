@@ -34,6 +34,13 @@ var realmId;
 var ticket;
 
 qboXDMReady = function() {
+    var pageModal = document.getElementById("pageModal");
+    if (pageModal) {
+        pageModal.addEventListener("dismiss", function() {
+            qboXDM.closeTrowser();
+        });
+    }
+
    qboXDM.getContext(function(context) {
       console.log(context);
       if (document.getElementById("custName")) {
@@ -44,12 +51,6 @@ qboXDMReady = function() {
       ticket = getCookie(context.qbo.cookiePrefix+".tkt");
    });
 };
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById("pageModal").addEventListener("dismiss", function() {
-        qboXDM.closeTrowser();
-    });
-});
 
 showPageMessage = function() {
     qboXDM.showPageMessage("Hello World", false);
